@@ -2,6 +2,10 @@ package com.twu.exercises;
 
 public class AsteriskPattern {
 
+    public String genOnePattern(char ch) {
+        return "" + ch;
+    }
+
     public String genHorizontalPattern(int amount) {
         return genHorizontalPattern(amount, '*');
     }
@@ -45,31 +49,19 @@ public class AsteriskPattern {
         return sb.toString();
     }
 
+    public String genDiamondPatternWithName(int n, String name) {
+        return genDiamondPattern(n).replace(genHorizontalPattern(2 * n -1),name);
+    }
+
     private String genPlaceHolder(int lineAmount, int lineNo) {
         return genHorizontalPattern(Math.abs(lineAmount - lineNo), ' ');
     }
 
-    private static String genHorizontalPattern(int amount, char ch) {
+    private String genHorizontalPattern(int amount, char ch) {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= amount; i++) {
-            sb.append(ch);
+            sb.append(genOnePattern(ch));
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        AsteriskPattern asteriskPattern = new AsteriskPattern();
-        System.out.println(asteriskPattern.genHorizontalPattern(1));
-        System.out.println(asteriskPattern.genHorizontalPattern(5));
-        System.out.println(asteriskPattern.genVerticalPattern(1));
-        System.out.println(asteriskPattern.genVerticalPattern(5));
-        System.out.println(asteriskPattern.genRightTrianglePattern(1));
-        System.out.println(asteriskPattern.genRightTrianglePattern(5));
-        System.out.println(asteriskPattern.genIsoscelesTrianglePattern(3));
-        System.out.println(asteriskPattern.genIsoscelesTrianglePattern(5));
-        System.out.println(asteriskPattern.genIsoscelesTrianglePattern(10));
-        System.out.println(asteriskPattern.genDiamondPattern(3));
-        System.out.println(asteriskPattern.genDiamondPattern(5));
-        System.out.println(asteriskPattern.genDiamondPattern(10));
     }
 }

@@ -1,7 +1,11 @@
 package com.twu.exercises;
 
-public class FizzBuzz {
+public class FizzBuzzExercise {
     public static void main(String[] args) {
+        fizzBuzz();
+    }
+
+    private static void fizzBuzz() {
         for(int i =1; i<=100; i++) {
             if(i%3 ==0 && i%5==0) {
                 System.out.println("FizzBuzz");
